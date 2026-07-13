@@ -117,6 +117,29 @@ void deleteNode(int position){
 }
 
 
+// Searching
+
+void search(int value){
+    struct Node *temp = head;
+    int position = 1;
+
+    if(head == NULL){
+        printf("List is Empty!\n");
+        return;
+    }
+
+    while(temp != NULL){
+        if(temp->data == value){
+            printf("Value %d found at position %d.\n", value, position);
+            return;
+        }
+        temp = temp->next;
+        position++;
+    }
+
+    printf("Value %d not found.\n", value);
+}
+
 int main(){
     
     int choice, value, position;
