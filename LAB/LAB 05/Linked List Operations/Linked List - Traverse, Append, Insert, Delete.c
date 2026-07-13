@@ -150,6 +150,7 @@ int main(){
         printf("2. Insert\n");
         printf("3. Delete\n");
         printf("4. Traverse\n");
+        printf("5. Search\n");
         printf("0. Exit\n");
         printf("Enter Choice: ");
         scanf("%d", &choice);
@@ -182,6 +183,12 @@ int main(){
             
             case 4:
                 traverse();
+                break;
+
+            case 5:
+                printf("Enter Value: ");
+                scanf("%d", &value);
+                search(value);
                 break;
             
             case 0:
