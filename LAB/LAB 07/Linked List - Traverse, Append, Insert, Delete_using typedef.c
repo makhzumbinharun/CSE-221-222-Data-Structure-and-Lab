@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-// Node ure
+// Node Structure
 
 typedef  struct Node{
     int data;
