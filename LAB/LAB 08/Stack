@@ -1,0 +1,98 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define MAX_SIZE 5 // Total capacity of the stack
+
+using namespace std;
+
+int arr[MAX_SIZE];
+int top = -1; // -1 represents that the stack is completely empty
+
+// 1. Push operation: Add an element to the stack
+void push(int value) {
+    // In zero-based indexing, the maximum valid index is (MAX_SIZE - 1)
+    if (top == MAX_SIZE - 1) {
+        cout << "Stack Overflow! Cannot push " << value << ".\n";
+    } else {
+        top++; // Move top to the next available position
+        arr[top] = value; // Insert the element
+        cout << value << " pushed into stack.\n";
+    }
+}
+
+// 2. Pop operation: Remove the top element from the stack
+void pop() {
+    if (top == -1) {
+        cout << "Stack Underflow! Nothing to pop.\n";
+    } else {
+        cout << arr[top] << " popped from stack.\n";
+        top--; // Decrease top to point to the previous element
+    }
+}
+
+// 3. Peek/Top operation: View the top element
+int peek() {
+    if (top == -1) {
+        cout << "Stack is empty!\n";
+        return -1;
+    } else {
+        return arr[top];
+    }
+}
+
+// 4. Display operation: Show all elements from Bottom to Top
+void display() {
+    if (top == -1) {
+        cout << "Stack is empty.\n";
+    } else {
+        cout << "Stack elements (Bottom to Top): ";
+        // Loop starts from index 0 (bottom) and goes up to top
+        for (int i = 0; i <= top; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int choice, value;
+
+    // Infinite loop until user decides to exit
+    while (true) {
+        cout<<endl;
+        display();
+        cout << "\n*** STACK OPERATIONS MENU ***\n";
+        cout << "1. Push\n";
+        cout << "2. Pop\n";
+        cout << "3. Peek (Top Element)\n";
+        cout << "4. Display Stack\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter value to push: ";
+                cin >> value;
+                push(value);
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                value = peek();
+                if (value != -1) {
+                    cout << "Top element is: " << value << endl;
+                }
+                break;
+            case 4:
+                display();
+                break;
+            case 5:
+                cout << "Exiting program. Goodbye!\n";
+                return 0; // Terminate the program
+            default:
+                cout << "Invalid choice! Please try again.\n";
+        }
+    }
+}
