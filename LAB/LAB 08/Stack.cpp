@@ -3,8 +3,6 @@ using namespace std;
 
 #define MAX_SIZE 5 // Total capacity of the stack
 
-using namespace std;
-
 int arr[MAX_SIZE];
 int top = -1; // -1 represents that the stack is completely empty
 
@@ -59,8 +57,8 @@ int main() {
 
     // Infinite loop until user decides to exit
     while (true) {
-        cout<<endl;
-        display();
+        //cout<<endl;
+        //display();
         cout << "\n*** STACK OPERATIONS MENU ***\n";
         cout << "1. Push\n";
         cout << "2. Pop\n";
