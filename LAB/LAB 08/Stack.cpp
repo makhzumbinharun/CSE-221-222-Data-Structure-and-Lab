@@ -1,3 +1,4 @@
+/* STACK
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -94,3 +95,123 @@ int main() {
         }
     }
 }
+*/
+
+/* QUEUE
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Define the maximum capacity of the queue
+const int MAX_SIZE = 5;
+
+// Global variables for queue state management
+int queueArray[MAX_SIZE];
+int frontIndex = -1;
+int rearIndex = -1;
+
+// Function to check if the queue is completely full
+bool isFull() {
+    return rearIndex == MAX_SIZE - 1;
+}
+
+// Function to check if the queue is empty
+bool isEmpty() {
+    return frontIndex == -1;
+}
+
+// Function to insert an element into the queue
+void enqueue(int value) {
+    if (isFull()) {
+        cout << "\nError: Queue Overflow! Cannot add " << value << "\n";
+        return;
+    }
+    // If inserting the very first element, set frontIndex to 0
+    if (frontIndex == -1) {
+        frontIndex = 0;
+    }
+    rearIndex++;
+    queueArray[rearIndex] = value;
+    cout << "\nSuccessfully enqueued: " << value << "\n";
+}
+
+// Function to delete an element from the queue
+void dequeue() {
+    if (isEmpty()) {
+        cout << "\nError: Queue Underflow! No elements to remove.\n";
+        return;
+    }
+    cout << "\nDequeued element: " << queueArray[frontIndex] << "\n";
+    frontIndex++;
+
+    // Reset indicators back to -1 if the queue becomes fully empty
+    if (frontIndex > rearIndex) {
+        frontIndex = -1;
+        rearIndex = -1;
+    }
+}
+
+// Function to look at the frontmost element without removing it
+void peek() {
+    if (isEmpty()) {
+        cout << "\nQueue is currently empty.\n";
+        return;
+    }
+    cout << "\nFront Element: " << queueArray[frontIndex] << "\n";
+}
+
+// Function to display all active elements in the queue
+void display() {
+    if (isEmpty()) {
+        cout << "\nQueue is currently empty.\n";
+        return;
+    }
+    cout << "\nCurrent Queue: ";
+    for (int i = frontIndex; i <= rearIndex; i++) {
+        cout << queueArray[i] << " ";
+    }
+    cout << "\n";
+}
+
+int main() {
+    int choice, value;
+
+    // Infinite loop to keep the menu active until manually exited
+    while (true) {
+        //display();
+        cout << "\n--- QUEUE OPERATIONS MENU ---\n";
+        cout << "1. Enqueue (Add Element)\n";
+        cout << "2. Dequeue (Remove Element)\n";
+        cout << "3. Peek (View Front Element)\n";
+        cout << "4. Display (View Entire Queue)\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice (1-5): ";
+        cin >> choice;
+
+        // Switch case block to execute selected operation
+        switch (choice) {
+            case 1:
+                cout << "Enter the value to enqueue: ";
+                cin >> value;
+                enqueue(value);
+                break;
+            case 2:
+                dequeue();
+                break;
+            case 3:
+                peek();
+                break;
+            case 4:
+                display();
+                break;
+            case 5:
+                cout << "\nExiting the program. Goodbye!\n";
+                return 0; // Terminate program execution
+            default:
+                cout << "\nInvalid Input! Please choose a number between 1 and 5.\n";
+        }
+    }
+    return 0;
+}
+
+*/
